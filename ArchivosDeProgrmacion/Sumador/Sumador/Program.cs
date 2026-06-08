@@ -26,6 +26,7 @@ class Program
         Console.WriteLine("Aqui tienes tu resultado: " + SumardorDecosas(a, b));
 
         Console.WriteLine("gracias por participar");
+        //Console.WriteLine("gracias por participar, de verdad");
     }
     static int BinariCalculator(String binari)
     {
