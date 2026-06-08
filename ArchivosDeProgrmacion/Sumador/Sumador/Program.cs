@@ -24,6 +24,8 @@ class Program
         Console.WriteLine("Introduce el segundo numero");
         int b = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Aqui tienes tu resultado: " + SumardorDecosas(a, b));
+
+        Console.WriteLine("gracias por participar");
     }
     static int BinariCalculator(String binari)
     {
