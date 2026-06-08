@@ -2,28 +2,28 @@
 class Program
 {
     //esto es un comentario para ver todo el tema de Modificaciones
-  static void Main() 
+    static void Main()
     {
         Console.WriteLine("Bienvenido damao caballero al fabuloso trnasformador de numeros binarios a decimales");
         Console.WriteLine("Tienes un total de 3 intentos, aprovechalos");
         Console.WriteLine("Si es usted tan amable haga el favor de introducir un numero binario");
-      
+
         int intentos = 3;
-        while (intentos >0)
+        while (intentos > 0)
         {
             Console.WriteLine("intento numero " + intentos);
             string binario = Console.ReadLine();
             int resultado = BinariCalculator(binario);
-            Console.WriteLine("Tu numero binario "+binario+ " en decimal es "+resultado);
+            Console.WriteLine("Tu numero binario " + binario + " en decimal es " + resultado);
             intentos--;
         }
 
         Console.WriteLine("tambien te puedo sumar dos numeros");
-        Console.WriteLine ("Introduce el primer numero");
-        int a = Cosole.readLine (); 
-        Conosle.WriteLine("Introduce el segundo numero")
-        int b= Console.ReadLine();
-        Console.WriteLine("Aqui tienes tu resultado"+ SumardorDecosas(a, b)); 
+        Console.WriteLine("Introduce el primer numero");
+        int a = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Introduce el segundo numero");
+        int b = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Aqui tienes tu resultado: " + SumardorDecosas(a, b));
     }
     static int BinariCalculator(String binari)
     {
@@ -44,7 +44,7 @@ class Program
         }
         return ndecimal;
     }
-    static  int SumardorDecosas(int a, int b)
+    static int SumardorDecosas(int a, int b)
     {
         int c = 0;
         c = a + b;
