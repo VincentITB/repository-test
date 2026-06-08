@@ -1,0 +1,15 @@
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.AssemblyInfoInputs.cache
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.AssemblyInfo.cs
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.csproj.CoreCompileInputs.cache
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.sourcelink.json
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\bin\Debug\net10.0\Sumador.exe
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\bin\Debug\net10.0\Sumador.deps.json
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\bin\Debug\net10.0\Sumador.runtimeconfig.json
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\bin\Debug\net10.0\Sumador.dll
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\bin\Debug\net10.0\Sumador.pdb
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.dll
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\refint\Sumador.dll
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.pdb
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\Sumador.genruntimeconfig.cache
+D:\ITB\DAMv1\TestGit\ArchivosDeProgrmacion\Sumador\Sumador\obj\Debug\net10.0\ref\Sumador.dll
