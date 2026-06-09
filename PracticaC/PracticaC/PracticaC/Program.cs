@@ -48,7 +48,9 @@ namespace HellowWorldProject {
         public static void Main() 
         {
             //HolidayTime();
-            RefactoredHoliday();
+            // UsoDeIterativas();
+            // RefactoredHoliday();
+            ArrayCreator();
             Console.WriteLine("Dime un numero del 1 la 12 y te dire si ese numero es junio o no ");
             int mes;
             mes= Int32.Parse(Console.ReadLine());
@@ -100,7 +102,6 @@ namespace HellowWorldProject {
                 Console.WriteLine("Haz lo que te salga de las narices");    
             }
         }
-
         static void HolidayTime() 
         {
             int month;
@@ -168,13 +169,45 @@ namespace HellowWorldProject {
                     break;
 
                 case 3:
-                 for (int i = 0;
-
-
+                    num = 10;
+                   // Console.WriteLine(num);
+                    for (int i = 0; i <= 10; i++) 
+                    {
+                        Console.WriteLine("Iteracion numero: " + num);
+                        num--;
+                    }
+                    Console.WriteLine("has usado el for");
+                    break;     
+                    
             }
             
 
         
+        }
+        static void ArrayCreator() 
+        {
+            int arrayX;
+            Console.WriteLine("Esto es un generador de arrays. Bienvenido");
+            Console.WriteLine("introduce el numeor de espacios que quieres que tenga la array:");
+            arrayX = Int32.Parse(Console.ReadLine());
+            int [] arrayNum  = new int[arrayX];
+            Console.WriteLine("Ahora vas a ir introduciendo uno a uno los numeros que quieres que rellenen la array");
+            for (int i = 0; i < arrayX; i++) 
+            {
+                Console.WriteLine("Escribe la cifra que ira en la posicion " + i);
+                arrayNum[i]= int .Parse(Console.ReadLine());
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Tu array es:");
+            Console.WriteLine(arrayNum);
+
+            for (int i = 0; i < arrayX; i++)
+            {
+                Console.Write(arrayNum[i]+",");
+            }
+            Console.WriteLine();
+
+
         }
     }
 }
