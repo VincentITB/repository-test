@@ -42,15 +42,24 @@ por ejemplo si pasas de un float a un it vas a perder los decimlaes 8.9 pasaria 
 
 using System;
 using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Runtime;
 namespace HellowWorldProject {
     public class HelloWorld {
         public static void Main() 
         {
+            int[] array = BubbleSorting();
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($"{array[i]}, ");
+            }
+            Console.WriteLine();
             //HolidayTime();
             // UsoDeIterativas();
             // RefactoredHoliday();
-            ArrayCreator();
+            //ArrayCreator();
+            //testForeach();
+            //Arrayfinder();
             Console.WriteLine("Dime un numero del 1 la 12 y te dire si ese numero es junio o no ");
             int mes;
             mes= Int32.Parse(Console.ReadLine());
@@ -199,15 +208,88 @@ namespace HellowWorldProject {
             }
             Console.WriteLine("");
             Console.WriteLine("Tu array es:");
-            Console.WriteLine(arrayNum);
 
             for (int i = 0; i < arrayX; i++)
             {
-                Console.Write(arrayNum[i]+",");
+                Console.Write($"{arrayNum[i]}, ");
             }
             Console.WriteLine();
+            Console.WriteLine($" Esto es lo que mide el array {arrayNum.GetLength(0)}");
+        }
+        static void testForeach() 
+        {
+            int position = 0;
+            int[] arrayPred = { 1, 2, 3, 4, 200, 6, 7, 8, 9, 10 };
+            foreach (int i in arrayPred)
+            {
+                     
+                if (i==200)
+                {
+                    Console.WriteLine($"el valor que tu buscas esta en la posicion {position}");
+                }
+                position++;
+                Console.WriteLine($"{i}");
+            }
 
+        }
+        static void Arrayfinder() 
+        {
+            int index;
+            int numCheck; 
+            Console.WriteLine("aquesta es la maquina que et dira si el numero esta o no esta enn l'array");
+            Console.WriteLine("digues de quans espais vols l'array");
+            index= Int32.Parse(Console.ReadLine());
+            int[] newArray = new int[index];
+            bool founded = false;
+            int foundedNum = 0;
+            int x = 0;
+            for (int i = 0; i < index; i++)
+            {
+                Console.WriteLine($"Escriu aqui el numero que anira en la {i}a posicio");
+                newArray[i]= Int32.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("ara digues un numero que t'agradaria confirmar qeu i es a la llista");
+            numCheck = Int32.Parse(Console.ReadLine());
+            while (x < newArray.Length)
+            {
+                if (newArray[x] == numCheck)
+                {
+                    founded = true;
+                    foundedNum++;
+                    x++;
+                }
+                else
+                {
+                    x++;
+                }
+            }
+            Console.WriteLine(founded? $"si que esta un total de {foundedNum} cops": "no esta, mala suerte");
 
+        }
+        static int[] BubbleSorting()
+        {
+            int[] arrayOrdenada = {5,3,8,10,9,7,6,1,4};
+            for (int i = 0; i < arrayOrdenada.Length; i++) 
+            {
+                for (int j = 0; j < arrayOrdenada.Length - 1; j++) 
+                {
+                    if (arrayOrdenada[j] > arrayOrdenada[j+1])
+                    {
+                        int aux = arrayOrdenada[j + 1];
+                        arrayOrdenada[j+1]= arrayOrdenada[j];
+                        arrayOrdenada [j] = aux;
+                    }             
+                }
+            }
+            return arrayOrdenada;
+        }
+        static void Arrays2D() 
+        {
+            int col,fil = 0;
+            Console.WriteLine("Este es el progrma que tepermite crear arrays en 2D");
+            Console.Write("");
+
+        
         }
     }
 }
