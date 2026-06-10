@@ -70,6 +70,7 @@ namespace HellowWorldProject {
             numerosEnteros();
             mayorOmenor();
             */
+            StringPlay();
             jaggeredArray();
         }
         static void numerosEnteros()
@@ -337,8 +338,7 @@ namespace HellowWorldProject {
                else
                {
                    jaggeredArray[i] = new int[4];
-               }
-                     
+               }       
             }
             for (int i = 0; i < jaggeredArray.Length; i++)
             {
@@ -349,20 +349,40 @@ namespace HellowWorldProject {
             }
             for (int i = 0; i < jaggeredArray.Length; i++)
             {
-                Console.Write($"Subarray {i}: [ ");
-
-                for (int j = 0; j < jaggeredArray[i].Length; j++)
+                Console.Write($"Array {i} -> [ ");
+                for (int j = 0; j < jaggeredArray[i].Length; j++) 
                 {
                     Console.Write(jaggeredArray[i][j]);
-
-                    if (j < jaggeredArray[i].Length-1)
-                       Console.Write(", ");
+                    if (jaggeredArray[i][j]< jaggeredArray[i].Length-1)
+                    {
+                        Console.Write(", ");
+                    }
                 }
-
-                Console.WriteLine("]");
+                Console.WriteLine(" ]");
             }
         }
-        
+        static void StringPlay() 
+        {/*
+            Console.WriteLine("escribeme una palabra:");
+            string palabra1 = Console.ReadLine();
+            Console.WriteLine("Ahora otra y si son iguales te lo dire:");
+            string palabra2 = Console.ReadLine();
+            string isTrue = palabra1.Equals(palabra2) == true ? "es igual" : "no se parecen en nada";
+            Console.WriteLine(isTrue);
+            int index= palabra1.LastIndexOf ('a');
+            Console.WriteLine(index);
+            float hash= palabra1.GetHashCode();
+            Console.WriteLine(hash);
+            palabra1=palabra1.Replace('a', 'j');
+            Console.WriteLine(palabra1);*/
+            string text = Console.ReadLine();
+            string[] palabras = text.Split(' ');
+            for (int i = 0; i < palabras.Length; i++)
+            {
+                Console.WriteLine(palabras[i]);
+            }
+            
+        }    
         static int numeroValido() 
         {
             int num;
