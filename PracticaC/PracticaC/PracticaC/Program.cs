@@ -48,18 +48,19 @@ namespace HellowWorldProject {
     public class HelloWorld {
         public static void Main() 
         {
-            int[] array = BubbleSorting();
+            /*int[] array = BubbleSorting();
             for (int i = 0; i < array.Length; i++)
             {
                 Console.Write($"{array[i]}, ");
             }
-            Console.WriteLine();
-            //HolidayTime();
-            // UsoDeIterativas();
-            // RefactoredHoliday();
-            //ArrayCreator();
-            //testForeach();
-            //Arrayfinder();
+            Console.WriteLine
+            Arrays2D();
+            HolidayTime();
+            UsoDeIterativas();
+            RefactoredHoliday();
+            ArrayCreator();
+            testForeach();
+            Arrayfinder();
             Console.WriteLine("Dime un numero del 1 la 12 y te dire si ese numero es junio o no ");
             int mes;
             mes= Int32.Parse(Console.ReadLine());
@@ -68,6 +69,8 @@ namespace HellowWorldProject {
             Console.WriteLine(isTrue);
             numerosEnteros();
             mayorOmenor();
+            */
+            jaggeredArray();
         }
         static void numerosEnteros()
         {
@@ -287,9 +290,91 @@ namespace HellowWorldProject {
         {
             int col,fil = 0;
             Console.WriteLine("Este es el progrma que tepermite crear arrays en 2D");
-            Console.Write("");
+            Console.Write("Indica cuantas filas quieres que tenga tu array:");
+            fil = numeroValido();
+            Console.WriteLine("Ahora indicame el numero de columnas");
+            col = numeroValido();
+            int[,] array2D = new int [fil, col];
+            int sum = 0;
+            for (int i = 0; i < fil; i++) 
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.WriteLine($"dime el numero que ira en la fila numero {i} y la columna numero {j}");
+                    array2D[i, j] = numeroValido();
+                }
+            }
+            for (int i = 0; i <fil; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write($"{array2D[i, j]} ");
+                }
+                Console.WriteLine();
+            }
+            foreach (int item in array2D)
+            {
+                sum +=item;
+                Console.Write($"{item}");
+            }
+            Console.WriteLine($"sumado da un total de {sum}");
+        }
+        static void jaggeredArray() 
+        {
+            int num;
+           
+            Console.WriteLine("Dime cuantos arrays quieres tener");
+            num = numeroValido();
+            int[][] jaggeredArray = new int[num][];
+            Console.WriteLine(jaggeredArray.Length);
 
+            for (int i = 0; i < jaggeredArray.Length; i++) 
+            {  
+               if (i % 2 == 0)
+               {
+                   jaggeredArray[i] = new int[2];
+               }
+               else
+               {
+                   jaggeredArray[i] = new int[4];
+               }
+                     
+            }
+            for (int i = 0; i < jaggeredArray.Length; i++)
+            {
+                for (int j = 0; j < jaggeredArray[i].Length; j++)
+                {
+                    jaggeredArray[i][j] = j;
+                }
+            }
+            for (int i = 0; i < jaggeredArray.Length; i++)
+            {
+                Console.Write($"Subarray {i}: [ ");
+
+                for (int j = 0; j < jaggeredArray[i].Length; j++)
+                {
+                    Console.Write(jaggeredArray[i][j]);
+
+                    if (j < jaggeredArray[i].Length-1)
+                       Console.Write(", ");
+                }
+
+                Console.WriteLine("]");
+            }
+        }
         
+        static int numeroValido() 
+        {
+            int num;
+            num = Int32.Parse(Console.ReadLine());
+            while (num<=0)
+            {
+                Console.WriteLine("este numero no es valido");
+                Console.WriteLine("Escribe un numero mayor que 0");
+                num = Int32.Parse(Console.ReadLine());
+            }
+            //Console.WriteLine($"{num} es un buen numero");
+            return num;
         }
     }
 }
