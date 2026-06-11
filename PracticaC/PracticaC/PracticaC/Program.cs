@@ -44,6 +44,8 @@ using System;
 using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Runtime;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 namespace HellowWorldProject {
     public class HelloWorld {
         public static void Main() 
@@ -70,8 +72,9 @@ namespace HellowWorldProject {
             numerosEnteros();
             mayorOmenor();
             */
-            StringPlay();
-            jaggeredArray();
+            //StringPlay();
+            //jaggeredArray();
+            Bloc01Ac095();
         }
         static void numerosEnteros()
         {
@@ -270,22 +273,22 @@ namespace HellowWorldProject {
             Console.WriteLine(founded? $"si que esta un total de {foundedNum} cops": "no esta, mala suerte");
 
         }
-        static int[] BubbleSorting()
+        static int[] BubbleSorting(int[] array)
         {
-            int[] arrayOrdenada = {5,3,8,10,9,7,6,1,4};
-            for (int i = 0; i < arrayOrdenada.Length; i++) 
+            //array = {5,3,8,10,9,7,6,1,4};
+            for (int i = 0; i < array.Length; i++) 
             {
-                for (int j = 0; j < arrayOrdenada.Length - 1; j++) 
+                for (int j = 0; j < array.Length - 1; j++) 
                 {
-                    if (arrayOrdenada[j] > arrayOrdenada[j+1])
+                    if (array[j] > array[j+1])
                     {
-                        int aux = arrayOrdenada[j + 1];
-                        arrayOrdenada[j+1]= arrayOrdenada[j];
-                        arrayOrdenada [j] = aux;
+                        int aux = array[j + 1];
+                        array[j+1]= array[j];
+                        array [j] = aux;
                     }             
                 }
             }
-            return arrayOrdenada;
+            return array;
         }
         static void Arrays2D() 
         {
@@ -382,7 +385,196 @@ namespace HellowWorldProject {
                 Console.WriteLine(palabras[i]);
             }
             
-        }    
+        }
+        static void Bloc01Ac091() 
+        {
+            Console.WriteLine("Et donen 20 numeros i els ordenes en pars e inpars");
+            Random random = new Random();
+            int HowMany=20, HowManyPair = 0, HowManyOdd = 0;
+            int[] arrayNumeros = new int[HowMany];
+            int[] arrayPair = new int[20];
+            int[] arrayOdd = new int[20];
+
+            for (int i = 0; i < HowMany; i++)
+            {
+                int AleaNum = random.Next(0, 10);
+                if (AleaNum % 2 == 0)
+                {
+                    arrayPair[HowManyPair] = AleaNum;
+                    HowManyPair++;
+                }
+                else
+                {
+                    arrayOdd[HowManyOdd] = AleaNum;
+                    HowManyOdd++;
+                }
+            }
+            for (int j = 0; j < HowManyPair; j++)
+            {
+                Console.Write(arrayPair[j]);
+            }
+            Console.WriteLine();
+            for (int i = 0; i < HowManyOdd; i++)
+            {
+                Console.Write(arrayOdd[i]);
+            }
+        }
+        static void Bloc01Ac092()
+        {
+            bool Escape = false;
+            int Delete,Option;
+            Console.WriteLine("La pokedex del mercadona");
+            string[] array = {"Pikachu", "Charmander", "Squirtle", "Bulbasaur", "Eevee", "Jigglypuff", "Meowth",
+            "Psyduck", "Snorlax", "Gengar", "Machop", "Magikarp", "Vulpix", "Onix", "Abra" };
+            
+            while (Escape!=true)
+            {
+             Console.WriteLine("Tens estes opcions: 1 -> Veure la llista y eliminar una posicio // 0 -> Sortir");
+             Option=Int32.Parse(Console.ReadLine());
+                if (Option == 1)
+                {
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        Console.WriteLine($"[{i}]: {array[i]}");
+                    }
+                    Console.WriteLine("quina posicio vols eliminar?");
+                    Delete = Int32.Parse(Console.ReadLine());
+                    if (array[Delete] == "Empty")
+                    {
+                        Console.WriteLine("!!No tens cap pokemon en esta posicio!!");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{array[Delete]} alliberat");
+                        Console.WriteLine();
+                        array[Delete] = "Empty";
+                    }
+
+
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        Console.WriteLine($"[{i}]: {array[i]}");
+                    }
+                }
+                else 
+                {
+                    Console.WriteLine("Adeu");
+                    Escape= true;  
+                }     
+            }
+        }
+
+        static void Bloc01Ac093() 
+        {
+            Random rnd = new Random();
+            int Num, pivot,search,searchCount=0;
+            int[] Arrayrnd = new int[10];
+            Console.WriteLine("Dime un valor para buscar:");
+            search= Int32.Parse(Console.ReadLine());    
+            for (int i = 0; i < Arrayrnd.Length; i++) 
+            {
+                Num = rnd.Next(0,9);
+                if (Num==search)
+                {
+                    searchCount++;
+                }
+                Arrayrnd[i] = Num;
+            }
+            for (int i = 0; i < Arrayrnd.Length; i++)
+            {
+                Console.Write(Arrayrnd[i]);
+            }
+            Console.WriteLine() ;
+            for (int i = 0; i < Arrayrnd.Length; i++)
+            {
+                Console.Write(Arrayrnd[9-i]);
+            }
+            Console.WriteLine();
+            /* for (int i = 0; i < Arrayrnd.Length; i++)
+             {
+                 for (int j = 0; j < Arrayrnd.Length-1; j++)
+                 {
+                     if (Arrayrnd[j] > Arrayrnd[j+1])
+                     {
+                         pivot = Arrayrnd[j];
+
+                         Arrayrnd[j] = Arrayrnd[j+1];
+                         Arrayrnd[j + 1]= pivot;
+                     }
+                 }
+             }
+             */
+            if (searchCount==0)
+            {
+                Console.WriteLine("Tu numero no ha salido");
+            }
+            else
+            {
+                Console.WriteLine($"Tu numero ha salido un total de {searchCount} veces");
+            }
+            BubbleSorting(Arrayrnd);
+            for (int i = 0; i < Arrayrnd.Length; i++)
+            {
+                Console.Write(Arrayrnd[i]);
+            }
+
+
+        }
+        static void Bloc01Ac095()
+        {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Random rnd = new Random();
+            int level, rareType,power;
+            decimal cost, weight;
+            bool isRare;
+            
+            string[] oNameArray = {"Espasa", "Escut", "Poció","Arc"};
+            string[] table = {"Nom", "Nivell", "Preu","Pes","Cost", "IsRareItem","RareType"};
+            int[] oLevelArray = new int[oNameArray.Length];
+            int[] oPowerlArray = new int[oNameArray.Length];
+            decimal[] oCostArray = new decimal[oNameArray.Length];
+            decimal[] oWeightArray = new decimal[oNameArray.Length];
+            bool[] oIsRare= new bool[oNameArray.Length];
+            string[] oRareType = { "Comú","Rar","Legendari","Ordinari" };
+            string[] oRareTypeNew= new string[oNameArray.Length];
+
+            for (int i = 0; i < oNameArray.Length; i++)
+            {
+                level=rnd.Next(1,10);
+                power=rnd.Next(100,500);
+                cost = (decimal)(rnd.NextDouble() * 200 + 50);
+                weight = Math.Round((decimal)(rnd.NextDouble() * 8 + 1),1);
+                isRare = rnd.Next(2)==0;
+                rareType = rnd.Next(oRareType.Length-1);
+                oLevelArray[i] = level;
+                oCostArray[i] = cost;
+                oPowerlArray[i] = power;
+                oWeightArray[i] = weight;
+                oIsRare[i] = isRare;
+                if (isRare)
+                {
+                    oRareTypeNew[i] = oRareType[rareType];
+                }
+                else
+                {
+                   oRareTypeNew[i] = "Ordinari";
+                }
+            }
+            /*for (int i = 0;i < table.Length; i++) 
+            {
+                Console.Write($"{table[i],-8}");
+            }*/
+            Console.WriteLine(
+    $"{"Nom",-10} {"Nivell",-8} {"Poder",-8} {"Pes",-8} {"Cost€",-10} {"Rare?",-8} {"RareType"}");
+            for (int i = 0; i < oNameArray.Length; i++) 
+            {
+                Console.WriteLine(
+    $"{oNameArray[i],-10} {oLevelArray[i],-8} {oPowerlArray[i],-8} {oWeightArray[i],-8} {oCostArray[i],-10:F2} € {oIsRare[i],-8} {oRareTypeNew[i]}");
+               // Console.Write($"{oNameArray[i]}     {oLevelArray[i]}     {oPowerlArray[i]}     {oWeightArray[i]}     {oCostArray[i]} €     {oIsRare[i]}     {oRareTypeNew[i]}");
+               // Console.WriteLine();
+            }               
+        }
         static int numeroValido() 
         {
             int num;
